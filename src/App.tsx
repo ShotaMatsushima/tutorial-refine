@@ -15,6 +15,8 @@ import dataProvider from "@refinedev/simple-rest";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import { MuiInferencer } from "@refinedev/inferencer/mui";
 
+import { BlogPostList } from "pages/blog-posts/list";
+
 const App: React.FC = () => {
     return (
         <ThemeProvider theme={RefineThemes.Blue}>
@@ -52,7 +54,7 @@ const App: React.FC = () => {
                             >
                                 <Route index element={<NavigateToResource resource="blog_posts" />} />
                                 <Route path="blog-posts">
-                                    <Route index element={<MuiInferencer />} />
+                                    <Route index element={<BlogPostList />} />
                                     <Route
                                         path="show/:id"
                                         element={<MuiInferencer />}
