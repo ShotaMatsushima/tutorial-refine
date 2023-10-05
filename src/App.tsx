@@ -16,6 +16,9 @@ import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import { MuiInferencer } from "@refinedev/inferencer/mui";
 
 import { BlogPostList } from "pages/blog-posts/list";
+import { BlogPostEdit } from "pages/blog-posts/edit";
+import { BlogPostShow } from "pages/blog-posts/show";
+import { BlogPostCreate } from "pages/blog-posts/create";
 
 const App: React.FC = () => {
     return (
@@ -37,6 +40,9 @@ const App: React.FC = () => {
                                 show: "/blog-posts/show/:id",
                                 create: "/blog-posts/create",
                                 edit: "/blog-posts/edit/:id",
+                                meta: {
+                                    canDelate: true,
+                                }
                             },
                         ]}
                         options={{
@@ -57,15 +63,15 @@ const App: React.FC = () => {
                                     <Route index element={<BlogPostList />} />
                                     <Route
                                         path="show/:id"
-                                        element={<MuiInferencer />}
+                                        element={<BlogPostShow />}
                                     />
                                     <Route
                                         path="edit/:id"
-                                        element={<MuiInferencer />}
+                                        element={<BlogPostEdit />}
                                     />
                                     <Route
                                         path="create"
-                                        element={<MuiInferencer />}
+                                        element={<BlogPostCreate />}
                                     />
                                 </Route>
                                 <Route path="*" element={<ErrorComponent />} />
